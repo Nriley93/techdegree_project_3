@@ -1,0 +1,242 @@
+:root {
+	--max-width: 768px;
+	--primary-color:#46465f;
+	--secondary-color: #999;
+	--aux-color: #ebebff;
+	--focus-color: rgb(104, 107, 255);
+}
+*,
+*:before, 
+*:after {
+		padding: 0;
+		margin: 0;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+/*=====================
+				Elements
+=======================*/
+body {
+	font-family: 'Merriweather', serif;
+	line-height: 1.4;
+	max-width: var(--max-width);
+	margin: auto;
+}
+h1 {
+	font-size: 1.5rem;
+}
+h2 {
+	font-size: 1.25rem;
+}
+p {
+	font-size: .8rem;
+	color: var(--secondary-color)
+}
+fieldset {
+	border: none;
+}
+/* ^^^ Removes forms default borders */
+
+label {
+	font-size: .8rem;
+}
+
+/*=========================
+			Utility Classes
+===========================*/
+.container {
+	width: 80%;
+	margin: auto;
+}
+
+::placeholder {
+	text-align: right;
+	color: var(--secondary-color);
+	font-size: .75rem;
+}
+/* ^^^ style "Required" text */
+
+:focus {
+	outline: 0;
+}
+/* ^^^ Removes default focus class */
+
+.btn {
+	width: 100%;
+	margin: 1.5rem 0;
+	padding: 1rem;
+	background: #35c7bb;
+	color: #fff;
+	border: 1px solid #8ad4be;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.btn:hover {
+	background: #289e94
+}
+
+.contact {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 1rem; 
+}
+
+.contact:last-child {
+	margin-bottom: 2rem;
+}
+
+.mb {
+	margin-bottom: 1rem;
+}
+
+/*========================
+			Header Section
+==========================*/
+header,
+footer {
+	text-align: center;
+}
+.main-header {
+	background: var(--primary-color);
+	color: #fff;
+	padding: 1rem 0;
+}
+/* ^^^ styles top banner while the h1 is styled under elements */
+
+.intro {
+	color: var(--primary-color);
+	padding: 1.5rem 0 1.75rem; 
+	border-bottom: 4px solid var(--primary-color);
+	margin-bottom: .25rem;
+}
+/* ^^^ Intro class styles content before the form */
+
+.intro h2 {
+	padding-bottom: .5rem;
+}
+
+/*=======================
+			Form Styles
+=========================*/
+fieldset{
+	padding: 0;
+}
+/* ^^^ removes deafult padding, fixes spacing on skinny dark blue border */
+
+legend {
+	padding: 1.25rem 0 1rem;
+	border-top: solid 2px var(--primary-color);
+	width: 100%;
+	font-size: 1.25rem;
+	color: var(--primary-color);
+	font-weight: bolder;
+}
+
+input,
+select,
+textarea {
+	border-radius: 5px;
+	border: none;
+}
+
+input[type="text"],
+select {
+	padding: 15px;
+	margin-top: .25rem;
+	background: var(--aux-color);
+}
+/*^^^ attr selctor will style input boxs for all inputs except zipcode */
+
+select{
+	width: 100%
+}
+/* ^^^ Fix default width  */
+
+input[id="zipcode"] {
+	width: 50%;
+	padding: 15px;
+	background: var(--aux-color);
+}
+/*^^^ attr selctor style's zipcode input */
+
+label {
+	color: var(--secondary-color);
+}
+
+label[for="name"]::after,
+label[for="email"]::after {
+	content:"*";
+	color: #ff0000;
+	padding-left: 8px;
+}
+/* ^^^ additional content for "required inputs", added to the label */
+
+textarea {
+	width: 100%;
+	background: var(--aux-color);
+	margin-top: .5rem;
+}
+
+/*=============================
+Radio and Check boxs
+===============================*/
+.news {
+	margin-top: .75rem;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+	margin: 0 4px 8px 0;
+}
+
+/*================
+Footer
+==================*/
+footer p {
+	padding-bottom: 1rem;
+}
+
+/*======================
+	Focus + Transitions
+========================*/
+input,
+select,
+textarea {
+	opacity: .4;
+}
+input:focus,
+select:focus,
+textarea:focus {
+	opacity: 1;
+	border: 2px solid var(--focus-color);
+	transition: all 0.2s .1s ease-in;
+}
+
+@media(min-width: 768px) {
+	.contact {
+			flex-direction: row;
+		}
+
+		input,
+		select {
+			flex: 3;
+			margin: auto;
+		}
+
+		label {
+			flex: 1;
+			align-self:center;
+			color: #333;
+		}
+
+		input[id="zipcode"] {
+			flex: none;	
+			margin-right: 50%;
+			width: 160px;
+		}
+		/*^^^ attr selctor will style zipcode input */
+
+}
